@@ -1,0 +1,4 @@
+POSTGRES_USER=same_user
+POSTGRES_PASSWORD=same_password
+POSTGRES_DB=same_db
+

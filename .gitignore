@@ -1,0 +1,4 @@
+backend/
+.idea/
+.vscode/
+node_modules/
