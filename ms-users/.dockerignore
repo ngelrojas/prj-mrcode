@@ -3,4 +3,4 @@
 /app/api/__pycache__/*.pyc
 .cot-env
 .cot-envdb
-staticsfiles/
+./app/staticfiles/
