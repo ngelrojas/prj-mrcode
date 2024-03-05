@@ -28,3 +28,12 @@ class UserSerializer(serializers.ModelSerializer):
             user.set_password(password)
             user.save()
         return user
+
+
+class UserSerializerPublic(serializers.ModelSerializer):
+    """model user serializer"""
+
+    class Meta:
+        model = User
+        fields = ("id", "first_name", "last_name")
+

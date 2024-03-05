@@ -55,7 +55,7 @@
 
 ### create custom login
 ```
-  add in requirements.txt drf-jwt and configuration in settings.py 
+  add in requirements.txt djangorestframework-simplejwt and configuration in settings.py 
 ```
 
 ### list volumes docker 
