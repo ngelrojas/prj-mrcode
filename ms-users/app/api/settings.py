@@ -37,6 +37,7 @@ THIRD_APPS = [
 API_APPS = [
     'core',
     'users',
+    'profiles',
 ]
 
 INSTALLED_APPS = LOCAL_APPS + THIRD_APPS + API_APPS
