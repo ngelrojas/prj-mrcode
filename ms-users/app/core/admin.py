@@ -3,6 +3,9 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext as _
 
 from .user import User
+from .profile import Profile
+
+from profiles.admin import ProfileAdmin
 
 
 class UserAdmin(BaseUserAdmin):
@@ -31,4 +34,17 @@ class UserAdmin(BaseUserAdmin):
     )
 
 
+# class ProfileAdmin(admin.ModelAdmin):
+#     ordering = ["id"]
+#     list_display = ["user", "bio", "location", "birth_date"]
+#     list_filter = []
+#     fieldsets = (
+#         (None, {"fields": ("user", "bio", "location", "birth_date")}),
+#     )
+#
+#     add_fieldsets = (
+#         (None, {"classes": ("wide",), "fields": ("user", "bio", "location", "birth_date")}),
+#     )
+
 admin.site.register(User, UserAdmin)
+admin.site.register(Profile, ProfileAdmin)
