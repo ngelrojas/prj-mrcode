@@ -6,3 +6,8 @@ node_modules/
 ./ms-users/app/mediafiles/
 ./ms-users/app/users/tests/__pycache__/*
 ./ms-users/app/*/tests/__pycache__/*
+
+./ms-articles/app/staticfiles/
+./ms-articles/app/mediafiles/
+./ms-articles/app/users/tests/__pycache__/*
+./ms-articles/app/*/tests/__pycache__/*

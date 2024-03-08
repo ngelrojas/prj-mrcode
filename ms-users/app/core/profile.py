@@ -3,9 +3,9 @@ from django.db import models
 
 class Profile(models.Model):
 
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    user = models.ForeignKey("User", on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
-    photo = models.ImageField(upload_to='images/profiles/%Y/%m/%d/', blank=True)
+    photo = models.ImageField(upload_to="images/profiles/%Y/%m/%d/", blank=True)
     location = models.CharField(max_length=255, blank=True)
     birth_date = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -20,4 +20,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.email
-

@@ -1,0 +1,8 @@
+.gitignore
+/app/api/__pycache__/*.*
+/app/api/__pycache__/*.pyc
+.cot-env
+.cot-envdb
+./app/staticfiles/*
+.mr_env
+.mr_envdb

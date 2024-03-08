@@ -34,17 +34,5 @@ class UserAdmin(BaseUserAdmin):
     )
 
 
-# class ProfileAdmin(admin.ModelAdmin):
-#     ordering = ["id"]
-#     list_display = ["user", "bio", "location", "birth_date"]
-#     list_filter = []
-#     fieldsets = (
-#         (None, {"fields": ("user", "bio", "location", "birth_date")}),
-#     )
-#
-#     add_fieldsets = (
-#         (None, {"classes": ("wide",), "fields": ("user", "bio", "location", "birth_date")}),
-#     )
-
 admin.site.register(User, UserAdmin)
 admin.site.register(Profile, ProfileAdmin)

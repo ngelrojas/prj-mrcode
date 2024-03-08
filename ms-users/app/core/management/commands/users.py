@@ -24,10 +24,10 @@ class Command(BaseCommand):
 
         with transaction.atomic():
             try:
-
-                # User.objects.create_superuser("admin@mrcode.com", "admin2024")
-                # self.success("admin user created successfully.")
-                # create users
+                self.warning("creating admin user")
+                User.objects.create_superuser("admin@mrcode.com", "admin2024")
+                self.success("admin user created successfully.")
+                self.success("creating users creators")
                 User.objects.create_user(
                     email="jhon@yopmail.com",
                     password="me123456",

@@ -7,6 +7,7 @@ from core.user import User
 
 class CreateUserView(generics.CreateAPIView):
     """Create new user"""
+
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
 
@@ -18,7 +19,9 @@ class UserViewSet(viewsets.ViewSet):
 
     def retrieve(self, request, pk=None):
         try:
-            current_user = User.objects.get(id=request.user.id, deleted=False, is_superuser=False)
+            current_user = User.objects.get(
+                id=request.user.id, deleted=False, is_superuser=False
+            )
             serializer = self.serializer_class(current_user)
             return Response({"data": serializer.data}, status=status.HTTP_200_OK)
         except Exception as e:
@@ -26,8 +29,12 @@ class UserViewSet(viewsets.ViewSet):
 
     def update(self, request, pk=None):
         try:
-            current_user = User.objects.get(id=request.user.id, deleted=False, is_superuser=False)
-            serializer = self.serializer_class(current_user, data=request.data, partial=True)
+            current_user = User.objects.get(
+                id=request.user.id, deleted=False, is_superuser=False
+            )
+            serializer = self.serializer_class(
+                current_user, data=request.data, partial=True
+            )
             if serializer.is_valid():
                 serializer.save()
                 return Response({"data": serializer.data}, status=status.HTTP_200_OK)
@@ -37,7 +44,9 @@ class UserViewSet(viewsets.ViewSet):
 
     def destroy(self, request, pk=None):
         try:
-            current_user = User.objects.get(id=request.user.id, deleted=False, is_superuser=False)
+            current_user = User.objects.get(
+                id=request.user.id, deleted=False, is_superuser=False
+            )
             current_user.deleted = True
             current_user.is_active = False
             current_user.save()

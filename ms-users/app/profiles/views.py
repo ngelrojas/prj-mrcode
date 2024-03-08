@@ -1,4 +1,4 @@
-from rest_framework import generics, viewsets, status
+from rest_framework import viewsets, status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from .serializers import ProfileSerializer, ProfileSerializerPublic
@@ -11,14 +11,22 @@ class CreateProfileView(viewsets.ViewSet):
 
     def create(self, request):
         try:
-            serializer = self.serializer_class(data=request.data, context={"request": request})
+            serializer = self.serializer_class(
+                data=request.data, context={"request": request}
+            )
             if serializer.is_valid():
                 serializer.save()
-                return Response({"data": serializer.data}, status=status.HTTP_201_CREATED)
-            print(serializer.errors)
+                return Response(
+                    {"data": serializer.data}, status=status.HTTP_201_CREATED
+                )
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({"error": str(e),}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {
+                    "error": str(e),
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
 
 class ProfileViewSet(viewsets.ViewSet):
