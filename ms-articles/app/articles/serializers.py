@@ -1,14 +1,26 @@
 from rest_framework import serializers
+from core.category import Category
 from core.post import Post
+from categories.serializers import CategorySerializerPublic
 
 
 class PostSerializer(serializers.ModelSerializer):
+    category = serializers.PrimaryKeyRelatedField(many=True, queryset=Category.objects.all())
+
     class Meta:
         model = Post
-        fields = "__all__"
-        read_only_fields = ("id",)
+        fields = '__all__'
 
     def create(self, validated_data):
-        user_id = self.context["request"].user
-        post = Post.objects.create(author=user_id, **validated_data)
+        categories = validated_data.pop('category')
+        post = Post.objects.create(**validated_data)
+        post.category.set(categories)
         return post
+
+
+class PostSerializerPublic(serializers.ModelSerializer):
+    category = CategorySerializerPublic(many=True, read_only=True)
+
+    class Meta:
+        model = Post
+        fields = '__all__'

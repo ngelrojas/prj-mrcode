@@ -11,7 +11,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     author = models.IntegerField()
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category, blank=True)
 
     def __str__(self):
         return self.title
