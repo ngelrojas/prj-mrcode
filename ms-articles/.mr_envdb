@@ -1,0 +1,4 @@
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=mr_code_24
+POSTGRES_DB=mr_code_articles
+
