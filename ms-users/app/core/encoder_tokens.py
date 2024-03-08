@@ -6,7 +6,8 @@ from django.utils.encoding import force_bytes, force_text
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
-    """generate code """
+    """generate code"""
+
     def _make_hash_value(self, user, timestamp):
         """creatring a value to current user"""
         now = datetime.now().minute
@@ -20,7 +21,7 @@ class TokenGenerator(PasswordResetTokenGenerator):
         for the given user.
         """
         date_now = datetime.now()
-        now = int(date_now.strftime('%Y%m%d'))
+        now = int(date_now.strftime("%Y%m%d"))
         token_generated = self._make_token_with_timestamp(user, now)
         return token_generated
 

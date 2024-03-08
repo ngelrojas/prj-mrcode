@@ -13,10 +13,9 @@ class CreateCategoryView(viewsets.ViewSet):
             serializer = self.serializer_class(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response({"data": serializer.data}, status=status.HTTP_201_CREATED)
+                return Response(
+                    {"data": serializer.data}, status=status.HTTP_201_CREATED
+                )
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response(
-                {"error": str(e)},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)

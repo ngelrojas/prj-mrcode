@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from core.profile import Profile
-from users.serializers import UserSerializer, UserSerializerPublic
+from users.serializers import UserSerializerPublic
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -37,8 +37,10 @@ class ProfileSerializerPublic(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ("user",
-                  "id",
-                  "bio",
-                  "photo",)
+        fields = (
+            "user",
+            "id",
+            "bio",
+            "photo",
+        )
         read_only_fields = ("id",)
