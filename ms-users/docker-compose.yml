@@ -23,6 +23,12 @@ services:
         - "5432:5432"
     env_file:
       - ./.cot-envdb
+    networks:
+      - mr_code_network
 
 volumes:
   postgres_data:
+
+networks:
+    mr_code_network:
+      driver: overlay

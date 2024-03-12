@@ -11,5 +11,13 @@ services:
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq
     container_name: 'rabbitmq-queue'
+    networks:
+      - mr_code_network
+
+
 volumes:
   rabbitmq-data:
+
+networks:
+    mr_code_network:
+      driver: overlay
