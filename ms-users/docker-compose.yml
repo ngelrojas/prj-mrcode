@@ -7,6 +7,8 @@ services:
     volumes:
       - ./app/:/usr/src/app/
     container_name: 'api_user_mr_code'
+    networks:
+      - mr_code_network
     ports:
       - "9001:9001"
     env_file:
@@ -30,5 +32,5 @@ volumes:
   postgres_data:
 
 networks:
-    mr_code_network:
-      driver: overlay
+  mr_code_network:
+    external: true

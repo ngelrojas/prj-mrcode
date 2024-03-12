@@ -14,10 +14,9 @@ services:
     networks:
       - mr_code_network
 
-
 volumes:
   rabbitmq-data:
 
 networks:
-    mr_code_network:
-      driver: overlay
+  mr_code_network:
+    external: true
