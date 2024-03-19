@@ -6,3 +6,4 @@ gunicorn
 djangorestframework-simplejwt
 Pillow
 flake8
+pika

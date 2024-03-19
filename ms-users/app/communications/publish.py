@@ -1,6 +1,10 @@
-import channels
+import json
+from channels import ChannelManager
 
-message = "hello from ms-users"
-channels.channel.basic_publish(
-    exchange="", routing_key="mr_code_response", body=message
-)
+
+class PublishManager:
+
+    def basic_publish(self, data_send):
+        channel = ChannelManager()
+        json_data = json.dumps(data_send)
+        return channel.get_basic_publish(json_data=json_data)
