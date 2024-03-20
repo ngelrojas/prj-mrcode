@@ -1,7 +1,7 @@
 from publish import PublishManager
 from consumer import ConsumerManager
 
-# TODO: test the publish and comment consume message
+# TODO: test the publish and comment consume message CREATE A MS-COMMENTS AND ADDING COMMUNICATION MODULE
 print("publish message")
 data_send = {"id": 1, "name": "John Doe", "email": "jhon@mrcode.com", "param": "test"}
 
