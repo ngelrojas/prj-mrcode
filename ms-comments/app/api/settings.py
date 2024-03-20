@@ -32,7 +32,10 @@ THIRD_APPS = [
     "corsheaders",
 ]
 
-API_APPS = []
+API_APPS = [
+    "core",
+    "comments",
+]
 
 INSTALLED_APPS = LOCAL_APPS + THIRD_APPS + API_APPS
 
