@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from core.user import User
+from core.profile import Profile
 
 
 class Command(BaseCommand):
@@ -28,7 +29,7 @@ class Command(BaseCommand):
                 User.objects.create_superuser("admin@mrcode.com", "admin2024")
                 self.success("admin user created successfully.")
                 self.success("creating users creators")
-                User.objects.create_user(
+                user_1 = User.objects.create_user(
                     email="jhon@yopmail.com",
                     password="me123456",
                     first_name="jhon",
@@ -37,7 +38,7 @@ class Command(BaseCommand):
                     user_type=2,
                 )
 
-                User.objects.create_user(
+                user_2 = User.objects.create_user(
                     email="azumi@yopmail.com",
                     password="me123456",
                     first_name="azumi",
@@ -46,5 +47,16 @@ class Command(BaseCommand):
                     user_type=2,
                 )
                 self.success("users creators created.")
+                self.warning("creating profiles for users")
+                Profile.objects.create(
+                    user=user_1,
+                    bio="I am a software developer",
+                    location="Nairobi, Kenya",
+                )
+                Profile.objects.create(
+                    user=user_2,
+                    bio="I am a software developer",
+                    location="Nairobi, Kenya",
+                )
             except Exception as err:
                 self.error(f"please provide email and password {err}")

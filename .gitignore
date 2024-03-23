@@ -11,3 +11,8 @@ node_modules/
 ./ms-articles/app/mediafiles/
 ./ms-articles/app/users/tests/__pycache__/*
 ./ms-articles/app/*/tests/__pycache__/*
+
+./ms-comments/app/staticfiles/
+./ms-comments/app/mediafiles/
+./ms-comments/app/users/tests/__pycache__/*
+./ms-comments/app/*/tests/__pycache__/*
