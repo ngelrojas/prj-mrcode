@@ -43,6 +43,21 @@
   docker-compose exec api python manage.py collectstatic --no-input --clear 
 ```
 
+### create user module
+```
+  docker-compose exec api python manage.py startapp users 
+```
+
+### create fake user
+```
+  docker-compose exec api python manage.py users 
+```
+
+### create custom login
+```
+  add in requirements.txt djangorestframework-simplejwt and configuration in settings.py 
+```
+
 ### list volumes docker 
 ### display a list of volumes
 ```

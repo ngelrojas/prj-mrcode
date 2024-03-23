@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./app
+    command: python3 manage.py runserver 0.0.0.0:9001
+    volumes:
+      - ./app/:/usr/src/app/
+    container_name: 'api_comments_mr_code'
+    networks:
+      - mr_code_network
+    ports:
+      - "9003:9003"
+    env_file:
+      - ./.mr_env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.0-alpine
+    container_name: 'db_comments_mr_code'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+        - "5432:5432"
+    env_file:
+      - ./.mr_envdb
+    networks:
+      - mr_code_network
+
+volumes:
+  postgres_data:
+
+networks:
+  mr_code_network:
+    external: true
