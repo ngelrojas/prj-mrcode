@@ -34,7 +34,9 @@ class CommentViewSet(CommentBaseView):
     def update(self, request, pk=None):
         try:
             instance = Comment.objects.get(id=pk)
-            serializer = self.serializer_class(instance, data=request.data)
+            serializer = self.serializer_class(
+                instance, data=request.data, partial=True
+            )
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response({"data": serializer.data}, status=status.HTTP_200_OK)
